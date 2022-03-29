@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="homade_menu_root"
+        name="Homade Catering"
+        sequence="10"
+        />
+    
+    <menuitem
+        id="homade_daftarmakanan_menu_categ"
+        name="Daftar Makanan"
+        parent="homade_menu_root"
+        sequence="10"/>
+
+    <menuitem
+        id="homade_packaging_menu_categ"
+        name="Packaging"
+        parent="homade_menu_root"
+        sequence="20"/>
+    
+    <menuitem
+        id="homade_order_menu_categ"
+        name="Order"
+        parent="homade_menu_root"
+        sequence="30"/>
+
+        
+    <menuitem
+        id="homade_partner_menu_categ"
+        name="Partner"
+        parent="homade_menu_root"
+        sequence="25"/>
+        
+     
+     </odoo>

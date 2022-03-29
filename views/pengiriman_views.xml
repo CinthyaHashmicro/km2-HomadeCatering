@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- homade.pengiriman tree view -->
+    <record id="homade_pengiriman_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Pengembalian</field>
+        <field name="model">homade.pengiriman</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="tgl_pengiriman"/>
+                <field name="tagihan"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- homade.pengiriman action window -->
+    <record id="homade_pengiriman_action" model="ir.actions.act_window">
+        <field name="name">Pengiriman Makanan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">homade.pengiriman</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+    id="homade_pengiriman_menu_act" 
+    name="Pengiriman" 
+    parent="homade_order_menu_categ" 
+    action="homade_pengiriman_action" 
+    sequence="20"/>
+</odoo>

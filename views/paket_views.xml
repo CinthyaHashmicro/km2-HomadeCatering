@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- homade.paket tree view -->
+    <record id="homade_paket_view_tree" model="ir.ui.view">
+        <field name="name">Paket Makanan</field>
+        <field name="model">homade.paket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="jenis"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                <field name="protein_id"/>
+                <field name="karbo_id"/>
+                <field name="lauk_id"/>
+                <field name="tambahan_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- homade.paket form view -->
+    <record id="homade_paket_view_form" model="ir.ui.view">
+        <field name="name">Paket Makanan</field>
+        <field name="model">homade.paket</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                            <field name="name"/>
+                            <field name="jenis"/>
+                            <field name="deskripsi"/>
+                            <field name="harga"/>
+                    </group>
+
+                    <group name="isi" string="Isi Paket Makanan"> 
+                            <field name="protein_id"/>
+                            <field name="karbo_id"/>
+                            <field name="lauk_id"/>
+                            <field name="tambahan_id"/>
+                    </group>
+
+                        <notebook>
+                            <page string="DESKRIPSI PROTEIN">
+                                <field name="des_protein"/>
+                            </page>
+
+                            <page string="DESKRIPSI KARBOHIDRAT">
+                                <field name="des_karbo"/>
+                            </page>
+
+                            <page string="DESKRIPSI LAUK">
+                                <field name="des_lauk"/>
+                            </page>
+
+                            <page string="DESKRIPSI MAKANAN TAMBAHAN">
+                                <field name="des_tambahan"/>
+                            </page>
+                        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- homade.paket action window -->
+    <record id="homade_paket_action" model="ir.actions.act_window">
+        <field name="name">Daftar Paket Makanan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">homade.paket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="homade_paket_menu_act" 
+    name="Paket Makanan" 
+    parent="homade_daftarmakanan_menu_categ" 
+    action="homade_paket_action" 
+    sequence="5"/>
+</odoo>

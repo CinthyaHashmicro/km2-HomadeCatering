@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- homade.package tree view -->
+    <record id="homade_package_view_tree" model="ir.ui.view">
+        <field name="name">Paket Packaging</field>
+        <field name="model">homade.package</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                <field name="stok"/>
+                <field name="kotak_id"/>
+                <field name="aksesoris_id"/>
+            </tree>
+        </field>
+    </record>    
+
+    <!-- homade.package form view -->
+    <record id="homade_package_view_form" model="ir.ui.view">
+        <field name="name">Paket Packaging</field>
+        <field name="model">homade.package</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                            <field name="name"/>
+                            <field name="deskripsi"/>
+                            <field name="harga"/>
+                            <field name="stok"/>
+                            <field name="kotak_id"/>
+                            <field name="aksesoris_id"/>
+                        </group>
+
+                        <notebook>
+                            <page string="DESKRIPSI KOTAK">
+                                <field name="des_kotak"/>
+                            </page>
+
+                            <page string="DESKRIPSI AKSESORIS">
+                                <field name="des_acc"/>
+                            </page>
+                        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- homade.package action window -->
+    <record id="homade_package_action" model="ir.actions.act_window">
+        <field name="name">Daftar Paket Packaging</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">homade.package</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem 
+    id="homade_package_menu_act" 
+    name="Paket Packaging" 
+    parent="homade_packaging_menu_categ" 
+    action="homade_package_action" 
+    sequence="5"/>
+</odoo>

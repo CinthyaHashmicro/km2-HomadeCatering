@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_homade_protein,access.homade.protein,model_homade_protein,,1,1,1,1
+access_homade_lauk,access.homade.lauk,model_homade_lauk,,1,1,1,1
+access_homade_karbohidrat,access.homade.karbohidrat,model_homade_karbohidrat,,1,1,1,1
+access_homade_tambahan,access.homade.tambahan,model_homade_tambahan,,1,1,1,1
+access_homade_tambahan,access.homade.tambahan,model_homade_tambahan,,1,1,1,1
+access_homade_kotak,access.homade.kotak,model_homade_kotak,,1,1,1,1
+access_homade_aksesoris,access.homade.aksesoris,model_homade_aksesoris,,1,1,1,1
+access_homade_package,access.homade.package,model_homade_package,,1,1,1,1
+access_homade_paket,access.homade.paket,model_homade_paket,,1,1,1,1
+access_homade_order,access.homade.order,model_homade_order,,1,1,1,1
+access_homade_orderdetails,access.homade.orderdetails,model_homade_orderdetails,,1,1,1,1
+access_homade_pengiriman,access.homade.pengiriman,model_homade_pengiriman,,1,1,1,1
+access_homade_akunting,access.homade.akunting,model_homade_akunting,,1,1,1,1

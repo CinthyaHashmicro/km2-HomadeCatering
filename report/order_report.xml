@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+<template id="report_homade_order">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h1>Faktur Order</h1>
+                    <h3>
+                    <div class="row">
+                        <div class="col-4">Kode Order : </div>
+                        <div class="col-8"><span t-field ="o.name"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Nama : </div>
+                        <div class="col-8"><span t-field ="o.customer_id"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Tanggal Pemesanan : </div>
+                        <div class="col-8"><span t-field ="o.tanggal_pesan"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Tanggal Pengiriman : </div>
+                        <div class="col-8"><span t-field ="o.tanggal_kirim"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Alamat Pengiriman : </div>
+                        <div class="col-8"><span t-field ="o.alamat"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Total Harga : </div>
+                        <div class="col-8"><span t-field ="o.total"/></div>
+                    </div>
+                    <div class="row"></div>
+                    </h3>
+                     <h4>
+                    <div class="row">
+                        <table class="table-bordered">
+                                <tr t-att-style="'padding:5px 10px;'">
+                                    <th>Paket Makanan</th> 
+                                    <th>Jenis Packaging</th> 
+                                    <th>Quantity</th> 
+                                    <th>Harga Satuan Makanan</th> 
+                                    <th>Harga Satuan Packaging</th>
+                                    <th>Harga Total</th>  
+                                </tr>
+                        <t t-foreach="o.orderdetails_ids" t-as="k">
+                                <tr>
+                                    <td><span t-esc ="k.makanan_id.name"/></td> 
+                                    <td><span t-esc ="k.package_id.name"/></td> 
+                                    <td><span t-esc ="k.qty"/></td> 
+                                    <td><span t-esc ="k.harga_satuanm"/></td> 
+                                    <td><span t-esc ="k.harga_satuanp"/></td>
+                                    <td><span t-esc ="k.harga"/></td> 
+                                </tr>
+                            
+                        </t>
+                        <tr>
+                                    <td  colspan="5"></td>
+                                    <td> <span t-field ="o.total"/></td>
+                        </tr>
+                        </table>
+                    </div>
+                    </h4>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>
