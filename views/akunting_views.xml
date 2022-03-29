@@ -5,10 +5,13 @@
         <field name="name">Akunting Homade Catering</field>
         <field name="model">homade.akunting</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree 
+            create="false"
+            >
                <field name="name"/>
                <field name="date"/>
                <field name="debet"/>
+               <field name="cash"/>
                <field name="kredit"/>
                <field name="saldo"/>
             </tree>

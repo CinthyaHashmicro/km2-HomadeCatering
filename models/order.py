@@ -19,6 +19,7 @@ class Order(models.Model):
     alamat = fields.Char(string='Alamat Pengiriman',required=True)
     total = fields.Integer(compute='_compute_total', string='Total', store=True)
     name = fields.Char(string='Kode Order',required=True)
+    metode_bayar = fields.Selection(string='Metode Pembayaran',selection=[('kredit','Kredit'),('cash','Cash')],required=True)
     sudah_dikirim = fields.Boolean(string='sudah Dikirim', default = False)
     tanggal_pesan = fields.Date(string='Tanggal Pemesanan', default=fields.Date.today(),required=True)
     tanggal_kirim = fields.Datetime(string = 'Tanggal Pengiriman', default = fields.Datetime.now() + datetime.timedelta(days=1),required=True)
@@ -28,6 +29,9 @@ class Order(models.Model):
         for record in self:
             a = sum(self.env['homade.orderdetails'].search([('order_id', '=', record.id)]).mapped('harga'))
             record.total = a
+    
+    def kembali_barang(self):
+        pass
     
 
 

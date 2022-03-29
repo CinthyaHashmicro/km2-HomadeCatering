@@ -8,5 +8,6 @@ class Protein(models.Model):
     name = fields.Char(string='Name')
     deskripsi = fields.Char(string='Deskripsi')
     harga = fields.Integer(string='Harga')
+    img = fields.Binary(string='Gambar')
     
     

@@ -2,7 +2,7 @@
 <odoo>
     <!-- homade.tambahan tree view -->
     <record id="homade_tambahan_view_tree" model="ir.ui.view">
-        <field name="name">homade.tambahan.view.tree</field>
+        <field name="name">Jenis Makanan Tambahan</field>
         <field name="model">homade.tambahan</field>
         <field name="arch" type="xml">
             <tree>
@@ -30,12 +30,43 @@
         </field>
     </record>
 
+    <record id ="homade_tambahan_view_kanban" model="ir.ui.view">
+        <field name="name">Jenis Makanan Tambahan</field>
+        <field name="model">homade.tambahan</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click">
+                        <div class="oe_kanban_details">
+                            <ul>
+                                <li>
+                                    <h4><field name="name"/></h4>
+                                </li>
+                                <li>
+                                    Deskripsi : <field name="deskripsi"/>
+                                </li>
+                                <li>
+                                    Harga : <field name="harga"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>                                   
+                </t>
+            </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- homade.tambahan action window -->
     <record id="homade_tambahan_action" model="ir.actions.act_window">
         <field name="name">Daftar Makanan Tambahan</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">homade.tambahan</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem 

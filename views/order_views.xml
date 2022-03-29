@@ -6,8 +6,12 @@
         <field name="model">homade.order</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button string="Sudah dikirim" name="kembali_barang" type="object" class="btn btn-success"/>
+                </header>
                 <field name="name"/>
                 <field name="customer_id"/>
+                <field name="metode_bayar"/>
                 <field name="alamat"/>
                 <field name="tanggal_pesan"/>
                 <field name="tanggal_kirim"/>
@@ -28,6 +32,7 @@
                     <group>
                         <field name="name"/>
                         <field name="customer_id"/>
+                        <field name="metode_bayar"/>
                         <field name="alamat"/>
                         <field name="tanggal_pesan"/>
                         <field name="tanggal_kirim"/>

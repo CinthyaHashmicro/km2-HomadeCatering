@@ -9,8 +9,9 @@ class Pengiriman(models.Model):
     name = fields.Char(compute='_compute_nama_penyewa', string='Nama Customer')
     order_id = fields.Many2one(
         comodel_name='homade.order', 
-        string='Order')
-    tgl_pengiriman = fields.Date(string='', default = fields.Date.today())
+        string='Order',
+        domain = "[('sudah_dikirim','=',False)]")
+    tgl_pengiriman = fields.Date(string='Tanggal Pengiriman', default = fields.Date.today())
     tagihan = fields.Char(compute='_compute_tagihan', string='Tagihan')
     
     @api.depends('order_id')
@@ -28,7 +29,10 @@ class Pengiriman(models.Model):
         record = super(Pengiriman, self).create(vals)
         if record.tgl_pengiriman:
             self.env['homade.order'].search([('id','=',record.order_id.id)]).write({'sudah_dikirim':True})
-            self.env['homade.akunting'].create({'kredit':record.tagihan, 'name' : record.name})
+            if record.order_id.metode_bayar == 'kredit':
+                self.env['homade.akunting'].create({'kredit':record.tagihan, 'name' : record.name})
+            else:
+                self.env['homade.akunting'].create({'cash':record.tagihan, 'name' : record.name})
             return record
 
     def unlink(self):
